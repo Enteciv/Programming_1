@@ -1,0 +1,117 @@
+import os
+import time
+
+def restart():
+  time.sleep(2)
+  os.system('clear')
+
+def invalid():
+  if c1 != "r" or c1 != "p" or c1 != "s":
+    if c2 != "r" or c2 != "p" or c2 != "s":
+      print("Invalid")
+      print("Please try again")
+      restart()
+
+print("Welcome to this Rock-Paper-Scissors game")
+restart()
+time.sleep(2)
+print('Rock paper scissors is a hand game, usually played between two people, in which each player simultaneously forms one of three shapes with an outstretched hand.')
+time.sleep(2)
+input("\nPress Enter to continue")
+restart()
+print("Give me your names:")
+p1 = input("Player 1 type your name:\n")
+restart()
+p2 = input("Player 2 type your name:\n")
+restart()
+
+goal = input("What goal score do you want to play?\n")
+
+
+try:
+  string_int = int(goal)
+  print(string_int)
+except ValueError:
+  print('Please enter an integer')
+    
+
+print(f"First to {str(goal)} wins!")
+restart()
+
+p1_score = 0
+p2_score = 0
+play_Again = True
+
+while play_Again: 
+  while p1_score < goal and p2_score < goal:
+    c1 = input(f"{p1} choose: \n (r) for rock \n (p) for paper\n (s) for scissors\n").lower()
+    os.system('clear')
+    c2 = input(f"{p2} choose: \n (r) for rock \n (p) for paper\n (s) for scissors\n").lower()
+    os.system('clear')
+    invalid()
+    if c1 == c2:
+      print("The game is a tie.")
+      if c1 == "r": 
+        print("Both choose rock.")
+        print(f"|{p1}|{p2}|\n|{p1_score}|{p2_score}|")
+      elif c1 == "p":
+        print("Both choose paper.")
+        print(f"|{p1}|{p2}|\n|{p1_score}|{p2_score}|")
+      elif c1 == "s":
+        print("Both choose scissors.")
+        print(f"|{p1}|{p2}|\n|{p1_score}|{p2_score}|")
+        restart()
+    elif c1 == "r":
+      if c2 == "s":
+        print(f"{p1} wins!")
+        print(f"{p1} choose rock.")
+        print(f"{p2} choose scissors.")
+        print(f"|{p1}|{p2}|\n|{p1_score}|{p2_score}|")
+        p1_score += 1
+        restart()
+      elif c2 == "p":
+        print(f"{p2} wins!")
+        print(f"{p1} choose rock.")
+        print(f"{p2} choose paper.")
+        print(f"|{p1}|{p2}|\n|{p1_score}|{p2_score}|")
+        p2_score += 1
+        restart()
+    elif c1 == "p":
+      if c2 == "r":
+        print(f"{p1} wins!")
+        print(f"{p1} choose paper.")
+        print(f"{p2} choose rock.")
+        print(f"|{p1}|{p2}|\n|{p1_score}|{p2_score}|")
+        p1_score += 1
+        restart()
+      elif c2 == "s":
+        print(f"{p2} wins!")
+        print(f"{p1} choose paper.")
+        print(f"{p2} choose scissors.")
+        print(f"|{p1}|{p2}|\n|{p1_score}|{p2_score}|")
+        p2_score += 1
+        restart()
+    elif c1 == "s":
+      if c2 == "p":
+        print(f"{p1} wins!")
+        print(f"{p1} choose scissors.")
+        print(f"{p2} choose paper.")
+        print(f"|{p1}|{p2}|\n|{p1_score}|{p2_score}|")
+        p1_score += 1
+        restart()
+      elif c2 == "r":
+        print(f"{p2} wins!")
+        print(f"{p1} choose scissors.")
+        print(f"{p2} choose rock.")
+        print(f"|{p1}|{p2}|\n|{p1_score}|{p2_score}|")
+        p2_score += 1
+        restart()
+  print("End of Game.")
+play_Again = input("Do you want to play again? (Y) or (N)\n")
+while play_Again.upper() != "Y" or play_Again != "N":
+  play_Again = input("Do you want to play again? (Y) or (N)\n")
+if play_Again == "Y":
+  play_Again = True
+elif play_Again == "N":
+  print("Thanks for playing!")
+  play_Again = False
