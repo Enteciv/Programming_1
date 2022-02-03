@@ -1,0 +1,49 @@
+import os
+import time
+def restart():
+  time.sleep(1)
+  os.system('clear')
+print("Welcome to Simple Bank!")
+print()
+#User_input_portion
+
+my_Boolean = True
+
+while open:
+  user_type = int(input("type '1' to login or type '2' create an account \n"))
+  print()
+
+  account_users = []
+
+  if user_type == 1:
+    username = input("username: \n")
+    password = input("password: \n")
+    print()
+  elif user_type == 2:
+    user_create = input("choose your username below: \n")
+    print()
+    user_password = input("create your secure password: \n")
+    print(f"{username}, welcome to Simple Bank. You have successfully created an account. Please login to continue.")
+    print()
+
+
+  else: 
+    print("ERROR")
+
+  user_balance = (0)
+
+  print(f"Hi {username}!")
+  user_wants = int(input("How may I help you today?\n\ntype 1 to check balance, type 2 to deposit funds, or type 3 to withdraw money \n"))
+  if user_wants == 1: 
+    print(f"Your total balance is ${user_balance}")
+  elif user_wants == 2:
+    deposit = int(input("How much do you want to deposit? \n $"))
+    user_balance += deposit
+    print(f"You have successfully added ${deposit} to your account")
+  elif user_wants == 3:
+    withdraw = int(input("How much do you want to withdraw? \n $"))
+    if user_balance >= withdraw:
+      user_balance -= withdraw  
+    else: 
+      print("Your balance is not enough, please try a different amount.")
+    
